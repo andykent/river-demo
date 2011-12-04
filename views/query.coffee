@@ -36,7 +36,17 @@ html ->
           for col in cols
             @scope.find('thead').append("<th>#{col}</th>")
         rowIdentifier: (record) ->
-          record._.uuid
+          if record?._?.uuid?
+            record._.uuid
+          else
+            id = []
+            sanitize = (value) -> (value or 'null').toString().replace(/[\s\.,-\/#!$\?%\^&\*;:{}=\-_`~()<>\[\]\+'"]/g, '_')
+            keys = Object.keys(record)
+            sortedKeys = keys.sort()
+            for key in sortedKeys
+              id.push(sanitize(key))
+              id.push(sanitize(record[key]))
+            id.join('-')
         maybePruneTable: ->
           numberOfRows = @scope.find('tbody tr').length
           return if numberOfRows < 2000
