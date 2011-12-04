@@ -1,0 +1,190 @@
+body {
+  font-family: 'Helvetica-Neue', Helvetica, Arial, 'Sans-Serif';
+  font-size: 12px;
+  color: #333;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+#page {
+  margin: 50px;
+}
+
+table {
+  margin: 10px 0;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  font-family: Inconsolata, Monaco, Monospace;
+}
+th, 
+td {
+  padding: 5px 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+th {
+  font-weight: bold;
+  background: #f6f6f6;
+}
+.new-row td {
+  background-color: #ffd;
+}
+.old-row td {
+  background-color: #fee;
+}
+
+#query-form {
+  margin: 0;
+}
+
+#query-form input[type='text'] {
+  display: block;
+  width: 100%;
+  font-size: 24px;
+}
+#query-form textarea {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-family: Inconsolata, Monaco, Monospace;
+  height: 30em;
+  margin: 20px 0;
+  padding: 7px 10px;
+  line-height: 1.4;
+}
+
+
+#query-form .CodeMirror {
+  margin: 20px 0;
+  border: 1px solid #bbb;
+  font-family: Inconsolata, Monaco, Monospace;
+  line-height: 1.4;
+  font-size: 14px;
+}
+#query-form .CodeMirror-scroll {
+  min-height: 10em;
+}
+
+.CodeMirror {
+  margin: 10px 0;
+  border: 1px solid #eee;
+  font-family: Inconsolata, Monaco, Monospace;
+  line-height: 1.4;
+  font-size: 13px;
+  background: #fcfcfc;
+}
+.CodeMirror-scroll {
+  height: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+#query-form button {
+  float: right;
+}
+
+#validation-results {
+  float: left;
+  position: relative;
+  top: -5px;
+}
+#validation-results p {
+  margin: 0;
+  padding: 7px 10px; 
+  background: #f6f6f6;
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+#validation-results p.success {
+  background: #dfd;
+  border: 1px solid #bfb;
+}
+#validation-results p.error {
+  background: #feb;
+  border: 1px solid #fc6;
+}
+
+.queries {
+  list-style: none;
+  margin: 100px 0;
+  padding: 0;
+}
+
+.query {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.query header {
+  margin: 0;
+  padding:0;
+  overflow: hidden;
+}
+.query h3 {
+  margin: 0;
+  padding:0;
+  float: left;
+  font-size: 15px;
+}
+.query .state {
+  float: right;
+  padding: 5px 10px;
+  color: #fff;
+  background: #333;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+.query.queued .state {
+  background: blue;
+}
+.query.running .state {
+  background: orange;
+}
+.query.failed .state {
+  background: red;
+}
+.query.completed .state {
+  background: green;
+}
+
+.query .actions {
+  display: none;
+}
+.query.completed .actions {
+  display: block;
+}
+
+.error {
+  margin: 1em 0;
+  padding: 7px 10px;
+  background: #feb;
+  border: 1px solid #fc6;
+}
+
+.stats {
+  clear: left;
+  margin: 10px 0;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  font-size: 12px;
+}
+.stats th, 
+.stats td {
+  padding: 5px 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+pre.query-body {
+  padding: 7px 10px;
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  font-family: Inconsolata, Monaco, Monospace;
+  line-height: 1.4;
+}

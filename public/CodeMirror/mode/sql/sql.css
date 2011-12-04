@@ -1,0 +1,43 @@
+span.cm-keyword {
+  color: blue;
+}
+
+span.cm-var {
+  color: red;
+}
+
+span.cm-comment {
+  color: #AA7700;
+}
+
+span.cm-literal {
+  color: green;
+}
+
+span.cm-operator {
+  color: blue;
+}
+
+span.cm-word {
+  color: black;
+}
+
+span.cm-quoted-word {
+  color: #680;
+}
+
+span.cm-function {
+  color: darkorange;
+}
+
+span.cm-type {
+  color: purple;
+}
+
+span.cm-separator {
+  color: #666666;
+}
+
+span.cm-number {
+  color: darkcyan;
+}
