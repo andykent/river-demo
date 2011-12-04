@@ -18,6 +18,7 @@ makeQuery = (q) ->
   query = CTX.addQuery(q)
   query.on 'insert', (newValues) -> io.sockets.in(query.id).emit 'insert', newValues
   query.on 'remove', (oldValues) -> io.sockets.in(query.id).emit 'remove', oldValues
+  query.refCount = 0
   query
   
 getQuery = (id) -> CTX.get(id)
@@ -46,8 +47,13 @@ io.sockets.on 'connection', (socket) ->
   console.log "*** connection"
   socket.on 'listen', (queryId) ->
     console.log "*** listen: #{queryId}"
-    socket.set 'query', queryId, () ->
-      console.log "query #{queryId} saved!"
+    getQuery(queryId).refCount++
+    socket.set 'query', queryId, () -> console.log "query #{queryId} saved!"
+    socket.on 'disconnect', ->
+      if q = getQuery(queryId)
+        q.refCount--
+        console.log('disconnecting...', q.refCount)
+        CTX.removeQuery(q) if q.refCount is 0
     socket.join queryId
 
 boot(app)
