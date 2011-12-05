@@ -37,7 +37,7 @@ html ->
         
   body ->
     h1 "River.js Twitter Stream Demo"
-    p "For more info about river, what it is and how it works, please see <a href=\"https://gihtub.com/andykent/river\">the River Github repo</a>."
+    p "For more info about river, what it is and how it works, please see <a href=\"https://github.com/andykent/river\">the River Github repo</a>."
     form '#query-form', action: '/query', method: 'post', ->
       textarea '#query-input', name: 'query'
       button type:'submit', 'Launch Query'
